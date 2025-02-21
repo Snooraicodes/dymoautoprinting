@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DYMO Label Printer</title>
+    <!-- SheetJS for parsing Excel files -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <!-- DYMO Label Framework (check for latest version at DYMO's site if this URL is outdated) -->
+    <script src="http://labelwriter.com/software/dls/sdk/js/DYMO.Label.Framework.latest.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        label { display: inline-block; width: 150px; margin: 5px 0; }
+        select { margin: 5px 0; }
+        button { margin-top: 10px; padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>Print Labels with DYMO Connect</h1>
+    <p>Upload your Excel file and DYMO label template, then map the columns to print labels.</p>
+    
+    <label>Excel File (.xlsx):</label>
+    <input type="file" id="excelFile" accept=".xlsx" /><br>
+    
+    <label>Label Template (.label):</label>
+    <input type="file" id="labelFile" accept=".label" /><br>
+    
+    <button onclick="processFiles()">Process Files</button>
+    
+    <div id="mapping"></div>
+    
+    <select id="printerSelect" style="display:none; margin-top: 10px;">
+        <option value="">Select Printer</option>
+    </select>
+    <button id="printButton" style="display:none;" onclick="printLabels()">Print Labels</button>
+    
+    <script src="app.js"></script>
+</body>
+</html>
